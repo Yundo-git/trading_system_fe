@@ -39,32 +39,7 @@ const TradingDashboard = () => {
           {/* 시장 데이터 차트 */}
           <div className="lg:col-span-2 bg-white p-4 rounded-lg shadow">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">가격 추이</h2>
-            <div className="h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={marketData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-                  <XAxis 
-                    dataKey="timestamp" 
-                    tick={{ fontSize: 12 }}
-                    tickFormatter={(value) => new Date(value).toLocaleTimeString()}
-                  />
-                  <YAxis tick={{ fontSize: 12 }} />
-                  <Tooltip 
-                    labelFormatter={(value) => `시간: ${new Date(value).toLocaleString()}`}
-                    formatter={(value) => [`${value} USDT`, '가격']}
-                  />
-                  <Legend />
-                  <Line 
-                    type="monotone" 
-                    dataKey="price" 
-                    stroke="#4f46e5" 
-                    strokeWidth={2}
-                    dot={false}
-                    activeDot={{ r: 6 }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
+          
           </div>
 
           {/* 포지션 현황 */}

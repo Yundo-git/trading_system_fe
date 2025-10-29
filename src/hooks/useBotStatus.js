@@ -14,7 +14,7 @@ const useBotStatus = (checkInterval = 30000) => {
         console.log('안된거',response)
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      console.log('된거',response.status)
+      console.log('된거',response)
       const status = await response.json();
       
       const newStatus = {

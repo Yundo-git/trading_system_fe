@@ -231,9 +231,9 @@ const WebSocketConnection = ({ onMessage }) => {
   return (
     <div>
       <div className="bot-status">
-        {botStatus && (
+        {botStatus && ( 
           <div className={`status-indicator ${botStatus.status}`}>
-            {botStatus.status === 'online' ? '🟢' : '🔴'} 
+            {botStatus.status === 'running' ? '🟢' : '🔴'} 
             {botStatus.message || `봇 상태: ${botStatus.status}`}
           </div>
         )}
