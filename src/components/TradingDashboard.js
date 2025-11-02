@@ -1,28 +1,23 @@
-import React, { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import  { useState } from 'react';
 import WebSocketConnection from './WebSocketConnection';
 
 const TradingDashboard = () => {
-  const [marketData, setMarketData] = useState([]);
   const [positions, setPositions] = useState([]);
-  const [performance, setPerformance] = useState({
-    totalProfit: 0,
-    winRate: 0,
-    dailyReturn: 0
-  });
 
   // WebSocket 메시지 처리
   const handleWebSocketMessage = (message) => {
+    console.log('Received message:', message);
     switch (message.type) {
       case 'market_data':
-        setMarketData(prev => [...prev, message.data].slice(-100)); // 최근 100개 데이터만 유지
+        // Market data handling removed as it's not being used
         break;
       case 'position_update':
         setPositions(message.data);
         break;
-      case 'performance_update':
-        setPerformance(message.data);
-        break;
+      // Performance updates are not being used
+      // case 'performance_update':
+      //   setPerformance(message.data);
+      //   break;
       default:
         break;
     }
@@ -35,12 +30,9 @@ const TradingDashboard = () => {
         
 
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div >
           {/* 시장 데이터 차트 */}
-          <div className="lg:col-span-2 bg-white p-4 rounded-lg shadow">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">가격 추이</h2>
-          
-          </div>
+      
 
           {/* 포지션 현황 */}
           <div className="bg-white p-4 rounded-lg shadow">
